@@ -1,0 +1,35 @@
+#MTR Map Overlay Configuration
+#Change the mod initialization log message to be something more formal
+formalInitLog = false
+#Log all landmark sync events to the console
+debugLog = false
+#Whether MTR routes, tracks and map-only landmark icons should be displayed
+enabled = true
+#Client-only fallback marker mode: 'station', 'platform', or 'both'. Full-network snapshots use the independent visibility switches below
+waypointMode = "both"
+#Whether MTR route lines should be drawn on the Xaero's World Map
+routeLinesEnabled = true
+#Whether the MTR track layer (actual rail geometry) should be drawn on the Xaero's World Map
+trackLinesEnabled = true
+#Draw live train symbols on the pure 2D map; whole-network with server support, nearby fallback otherwise
+trainCarsEnabled = true
+
+[networkSync]
+	#Request full-network snapshots from servers that also run this mod (Create-train-map-style whole-network view). Client-only servers fall back to radius-limited MTR data automatically
+	enabled = true
+	#How often (in seconds) to refresh the full-network snapshot while playing
+	# Default: 300
+	# Range: 30 ~ 3600
+	refreshIntervalSeconds = 300
+
+[visibility]
+	#Whether station icons should be drawn on fullscreen maps
+	showStationLandmarks = true
+	#Whether platform icons should be drawn on fullscreen maps when zoomed in
+	showPlatformLandmarks = true
+	#Whether depot icons should be drawn on fullscreen maps
+	showDepotLandmarks = false
+	#Whether empty stations (with no routes) should be added to the map
+	showEmptyStation = false
+	#Whether MTR routes marked as hidden should be appended to the station description
+	showHiddenRoute = false

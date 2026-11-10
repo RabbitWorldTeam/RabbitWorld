@@ -1,0 +1,49 @@
+name: Build Rabbit World
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      build_server:
+        description: Build the dedicated server pack
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build client pack
+        run: python3 scripts/build.py client
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Rabbit-World-Client
+          path: dist/Rabbit-World-Client-*.zip
+          if-no-files-found: error
+
+  server:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.build_server
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Build server pack
+        env:
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+        run: python3 scripts/build.py server
+      - uses: actions/upload-artifact@v4
+        if: github.event.repository.private
+        with:
+          name: Rabbit-World-Server
+          path: dist/Rabbit-World-Server-*.zip
+          if-no-files-found: error

@@ -1,0 +1,138 @@
+{
+	icon: {
+		id: "minecraft:shulker_box"
+	}
+	id: "6373570FE7AB0A87"
+	loot_size: 1
+	order_index: 1
+	rewards: [
+		{
+			count: 640
+			id: "0C30601473D81208"
+			item: {
+				count: 1
+				id: "minecraft:white_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "08BFC1E8376F2B4F"
+			item: {
+				count: 1
+				id: "minecraft:light_gray_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "1B592745676A9A0B"
+			item: {
+				count: 1
+				id: "minecraft:gray_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "3C25B33BB533B75B"
+			item: {
+				count: 1
+				id: "minecraft:black_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "26EC0E8D9E1F8093"
+			item: {
+				count: 1
+				id: "minecraft:brown_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "2A66CDCBD00367D7"
+			item: {
+				count: 1
+				id: "minecraft:red_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "3E46674925FE7D27"
+			item: {
+				count: 1
+				id: "minecraft:orange_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "349AD6FB1DD35F60"
+			item: {
+				count: 1
+				id: "minecraft:yellow_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "1F0B19BB72C5D067"
+			item: {
+				count: 1
+				id: "minecraft:lime_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "12574BF8FD127A33"
+			item: {
+				count: 1
+				id: "minecraft:green_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "3931F112947B6B38"
+			item: {
+				count: 1
+				id: "minecraft:cyan_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "2EAFD37209E81BBB"
+			item: {
+				count: 1
+				id: "minecraft:light_blue_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "023FA2B8D94DAE20"
+			item: {
+				count: 1
+				id: "minecraft:blue_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "21A91C90ECADE662"
+			item: {
+				count: 1
+				id: "minecraft:purple_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "2A1AEB60AC3E0132"
+			item: {
+				count: 1
+				id: "minecraft:magenta_concrete"
+			}
+		}
+		{
+			count: 640
+			id: "012E563673244844"
+			item: {
+				count: 1
+				id: "minecraft:pink_concrete"
+			}
+		}
+	]
+}

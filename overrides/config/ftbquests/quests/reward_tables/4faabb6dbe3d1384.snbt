@@ -1,0 +1,127 @@
+{
+	id: "4FAABB6DBE3D1384"
+	loot_size: 1
+	order_index: 7
+	rewards: [
+		{
+			count: 640
+			id: "1E3F4B46C2B1B9BA"
+			item: {
+				count: 1
+				id: "minecraft:shroomlight"
+			}
+		}
+		{
+			count: 640
+			id: "138328B4125FDA4C"
+			item: {
+				count: 1
+				id: "minecraft:glow_berries"
+			}
+		}
+		{
+			count: 640
+			id: "18492F9C6590071C"
+			item: {
+				count: 1
+				id: "minecraft:glow_lichen"
+			}
+		}
+		{
+			count: 640
+			id: "3ECC530D57F519A3"
+			item: {
+				count: 1
+				id: "minecraft:sea_lantern"
+			}
+		}
+		{
+			count: 640
+			id: "081123F61622620D"
+			item: {
+				count: 1
+				id: "minecraft:jack_o_lantern"
+			}
+		}
+		{
+			count: 640
+			id: "09F19D71CEC8EB3B"
+			item: {
+				count: 1
+				id: "minecraft:ochre_froglight"
+			}
+		}
+		{
+			count: 640
+			id: "14771A9C2A6F5757"
+			item: {
+				count: 1
+				id: "minecraft:verdant_froglight"
+			}
+		}
+		{
+			count: 640
+			id: "3D9025FE813FAA04"
+			item: {
+				count: 1
+				id: "minecraft:pearlescent_froglight"
+			}
+		}
+		{
+			count: 640
+			id: "2FF19F5E13118B76"
+			item: {
+				count: 1
+				id: "minecraft:lantern"
+			}
+		}
+		{
+			count: 640
+			id: "2B8333BDC1C50C47"
+			item: {
+				count: 1
+				id: "minecraft:soul_lantern"
+			}
+		}
+		{
+			count: 640
+			id: "1FBF4BC8FB799B7C"
+			item: {
+				count: 1
+				id: "minecraft:redstone_lamp"
+			}
+		}
+		{
+			count: 640
+			id: "28CA3A121517D077"
+			item: {
+				count: 1
+				id: "minecraft:campfire"
+			}
+		}
+		{
+			count: 640
+			id: "3D220C4361DB8548"
+			item: {
+				count: 1
+				id: "minecraft:soul_campfire"
+			}
+		}
+		{
+			count: 640
+			id: "3B37736A7EEBE8B8"
+			item: {
+				count: 1
+				id: "minecraft:torch"
+			}
+		}
+		{
+			count: 640
+			id: "035D9B5B7ED4BE86"
+			item: {
+				count: 1
+				id: "minecraft:soul_torch"
+			}
+		}
+	]
+}

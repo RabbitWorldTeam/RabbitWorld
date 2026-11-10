@@ -1,0 +1,13 @@
+["General Settings"]
+	#Welcome message to display to players when they join the server.
+	welcomeMessage = "Welcome to the RabbitMine server!"
+	#Item used for selecting regions. Default is a wooden_hoe.
+	selectionTool = "minecraft:wooden_hoe"
+	#Port for the HTTP server to listen on.
+	# Default: 8124
+	# Range: 1024 ~ 65535
+	serverPort = 8124
+	#Speed at which the site refreshes in seconds. Default is 60 seconds.
+	# Default: 100
+	# Range: > 1
+	siteRefreshSpeed = 100

@@ -1,0 +1,6 @@
+#Percentage of players required to sleep to skip the night (0-100)
+# Default: 50.0
+# Range: 0.0 ~ 100.0
+percentage = 50.0
+#List of dimensions where sleeping is enabled
+dimensions = ["minecraft:overworld"]

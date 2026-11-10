@@ -1,0 +1,48 @@
+#OpenAI / OpenAI-compatible API settings.
+[openai]
+	#API key (sk-...) sent as the bearer token. Required.
+	api_key = ""
+	#Base URL override. Leave empty for OpenAI's default endpoint.
+	#Examples: https://api.deepseek.com, http://localhost:11434 (Ollama)
+	base_url = ""
+	#Model id sent as the `model` field. Backend-defined.
+	model = "gpt-5-2-mini"
+	#Wire-format adapter AND default base URL selector.
+	#openai      → api.openai.com/v1 (default; also generic OpenAI-compat fallback)
+	#deepseek    → api.deepseek.com/beta (preserves reasoning_content for V4 thinking)
+	#moonshot    → api.moonshot.ai/v1 (Kimi; fill_reasoning_content safety net)
+	#  (alias: kimi)
+	#minimax     → api.minimax.io/v1
+	#volcengine  → ark.cn-beijing.volces.com/api/v3 (Doubao)
+	#  (aliases: doubao, ark)
+	#dashscope   → dashscope.aliyuncs.com/compatible-mode/v1 (Alibaba Qwen / Tongyi)
+	#  (aliases: qwen, tongyi, aliyun)
+	#Override 'base_url' below to use a different host (proxy / region split).
+	provider = "openai"
+	#Optional HTTP proxy for LLM calls as host:port (empty = direct).
+	proxy = ""
+	#Reasoning / deep-thinking effort for reasoning-capable models.
+	#auto (default; send nothing — backend decides) | low | medium | high.
+	#When not 'auto', sends the OpenAI-dialect `reasoning_effort` request parameter.
+	reasoning_effort = "auto"
+
+#Behaviour tuning.
+[agent]
+	#System prompt prepended to every conversation.
+	system_prompt = """
+You are Numen, a Minecraft entity controlled by the player who owns you.
+Use the tools provided to act in the world; output text only to talk to your owner."""
+
+#Voice input (STT) — global, one microphone / one transcription service.
+[stt]
+	#Provider preset (whisper-http adapter).
+	#siliconflow | openai | groq | custom (fill base_url + model yourself)
+	provider = "siliconflow"
+	#Voice-input service API key (bearer). Empty = voice input off.
+	api_key = ""
+	#Base URL override. Empty = provider preset default.
+	base_url = ""
+	#Transcription model id (e.g. whisper-1, FunAudioLLM/SenseVoiceSmall).
+	model = "FunAudioLLM/SenseVoiceSmall"
+	#Input device name; empty = first available microphone.
+	microphone = ""

@@ -1,0 +1,119 @@
+{
+	id: "060C5E7EF716268E"
+	loot_size: 1
+	order_index: 6
+	rewards: [
+		{
+			count: 1024
+			id: "2870350263560BEA"
+			item: {
+				count: 1
+				id: "minecraft:granite"
+			}
+		}
+		{
+			count: 1024
+			id: "1276C5D3E8AC04DF"
+			item: {
+				count: 1
+				id: "minecraft:diorite"
+			}
+		}
+		{
+			count: 1024
+			id: "1410E569B62ED014"
+			item: {
+				count: 1
+				id: "minecraft:andesite"
+			}
+		}
+		{
+			count: 1024
+			id: "2EF27AB20E043DF1"
+			item: {
+				count: 1
+				id: "minecraft:deepslate"
+			}
+		}
+		{
+			count: 1024
+			id: "1CEC968C073D2DE6"
+			item: {
+				count: 1
+				id: "minecraft:prismarine"
+			}
+		}
+		{
+			count: 1024
+			id: "03D5F977A636BDBC"
+			item: {
+				count: 1
+				id: "minecraft:calcite"
+			}
+		}
+		{
+			count: 1024
+			id: "3B795A925C486283"
+			item: {
+				count: 1
+				id: "minecraft:blackstone"
+			}
+		}
+		{
+			count: 1024
+			id: "1ED8741C200A90CD"
+			item: {
+				count: 1
+				id: "minecraft:end_stone"
+			}
+		}
+		{
+			count: 1024
+			id: "38D9AD5ED6CC5EE8"
+			item: {
+				count: 1
+				id: "minecraft:dripstone_block"
+			}
+		}
+		{
+			count: 1024
+			id: "215F29EA66E9E866"
+			item: {
+				count: 1
+				id: "minecraft:netherrack"
+			}
+		}
+		{
+			count: 1024
+			id: "1B5E3058E97BA953"
+			item: {
+				count: 1
+				id: "minecraft:sandstone"
+			}
+		}
+		{
+			count: 1024
+			id: "284A125CF0CFFF27"
+			item: {
+				count: 1
+				id: "minecraft:red_sandstone"
+			}
+		}
+		{
+			count: 1024
+			id: "261D97842B709DA5"
+			item: {
+				count: 1
+				id: "minecraft:cobbled_deepslate"
+			}
+		}
+		{
+			count: 1024
+			id: "2FB1581538E958B3"
+			item: {
+				count: 1
+				id: "minecraft:basalt"
+			}
+		}
+	]
+}

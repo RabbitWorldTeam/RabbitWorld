@@ -1,0 +1,138 @@
+{
+	icon: {
+		id: "minecraft:white_wool"
+	}
+	id: "303E69252BC19B8A"
+	loot_size: 1
+	order_index: 2
+	rewards: [
+		{
+			count: 640
+			id: "1F7F82E65B8871B1"
+			item: {
+				count: 1
+				id: "minecraft:white_wool"
+			}
+		}
+		{
+			count: 640
+			id: "0CC8491D99E69755"
+			item: {
+				count: 1
+				id: "minecraft:light_gray_wool"
+			}
+		}
+		{
+			count: 640
+			id: "22C32594B5572237"
+			item: {
+				count: 1
+				id: "minecraft:gray_wool"
+			}
+		}
+		{
+			count: 640
+			id: "2F28972AC4C4B0A3"
+			item: {
+				count: 1
+				id: "minecraft:black_wool"
+			}
+		}
+		{
+			count: 640
+			id: "06423177F19D7911"
+			item: {
+				count: 1
+				id: "minecraft:brown_wool"
+			}
+		}
+		{
+			count: 640
+			id: "12A5B83EA0A82E84"
+			item: {
+				count: 1
+				id: "minecraft:red_wool"
+			}
+		}
+		{
+			count: 640
+			id: "23C9239F59FEAD5A"
+			item: {
+				count: 1
+				id: "minecraft:orange_wool"
+			}
+		}
+		{
+			count: 640
+			id: "10B7A018BA8E04E6"
+			item: {
+				count: 1
+				id: "minecraft:yellow_wool"
+			}
+		}
+		{
+			count: 640
+			id: "18ECB0B52303291E"
+			item: {
+				count: 1
+				id: "minecraft:lime_wool"
+			}
+		}
+		{
+			count: 640
+			id: "374F746627ED0B61"
+			item: {
+				count: 1
+				id: "minecraft:green_wool"
+			}
+		}
+		{
+			count: 640
+			id: "3131F838048103BB"
+			item: {
+				count: 1
+				id: "minecraft:cyan_wool"
+			}
+		}
+		{
+			count: 640
+			id: "1276025C51CC15E4"
+			item: {
+				count: 1
+				id: "minecraft:light_blue_wool"
+			}
+		}
+		{
+			count: 640
+			id: "06C84AE07407177F"
+			item: {
+				count: 1
+				id: "minecraft:blue_wool"
+			}
+		}
+		{
+			count: 640
+			id: "1D102F67D72488FF"
+			item: {
+				count: 1
+				id: "minecraft:purple_wool"
+			}
+		}
+		{
+			count: 640
+			id: "377F3A64E82F9442"
+			item: {
+				count: 1
+				id: "minecraft:magenta_wool"
+			}
+		}
+		{
+			count: 640
+			id: "0981362D14AB80B1"
+			item: {
+				count: 1
+				id: "minecraft:pink_wool"
+			}
+		}
+	]
+}

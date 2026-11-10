@@ -1,0 +1,153 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "28ff225ccbfd2ed7"
+	group: "30A3B0B06897CF75"
+	icon: {
+		id: "minecraft:bookshelf"
+	}
+	id: "28FF225CCBFD2ED7"
+	images: [ ]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			can_repeat: true
+			icon: {
+				id: "minecraft:white_concrete"
+			}
+			id: "4007E92708B68039"
+			rewards: [{
+				exclude_from_claim_all: true
+				id: "7A5CD4081326059C"
+				table_id: 7166167157899463303L
+				type: "choice"
+			}]
+			tasks: [{
+				consume_items: true
+				id: "0BEFAE47F21737E3"
+				item: { components: { "minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}", "minecraft:enchantments": { levels: { "minecraft:mending": 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				only_from_crafting: false
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			can_repeat: true
+			icon: {
+				id: "minecraft:white_wool"
+			}
+			id: "0D43D9A8CC02F7F8"
+			rewards: [{
+				exclude_from_claim_all: true
+				id: "7F9B6C10386D43D7"
+				table_id: 3476331570745416586L
+				type: "choice"
+			}]
+			tasks: [{
+				consume_items: true
+				id: "1EAC5965C9786968"
+				item: { components: { "minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}", "minecraft:enchantments": { levels: { "minecraft:mending": 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				only_from_crafting: false
+				type: "item"
+			}]
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			can_repeat: true
+			icon: {
+				id: "minecraft:oak_log"
+			}
+			id: "54F403AD27481461"
+			rewards: [{
+				exclude_from_claim_all: true
+				id: "6423A322C2F408A6"
+				table_id: 4548148951850511999L
+				type: "choice"
+			}]
+			tasks: [{
+				consume_items: true
+				id: "7EDC1B946DC20B4A"
+				item: { components: { "minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}", "minecraft:enchantments": { levels: { "minecraft:mending": 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				only_from_crafting: false
+				type: "item"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			can_repeat: true
+			icon: {
+				id: "minecraft:campfire"
+			}
+			id: "78811079F8014C96"
+			rewards: [{
+				exclude_from_claim_all: true
+				id: "6F7E14A093D572EE"
+				table_id: 5740606755054621572L
+				type: "choice"
+			}]
+			tasks: [{
+				consume_items: true
+				id: "6C36EFAB745AA418"
+				item: { components: { "minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}", "minecraft:enchantments": { levels: { "minecraft:mending": 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				only_from_crafting: false
+				type: "item"
+			}]
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			can_repeat: true
+			icon: {
+				id: "minecraft:andesite"
+			}
+			id: "7D1835183188BFF6"
+			rewards: [{
+				exclude_from_claim_all: true
+				id: "1E3E3A2C1BC9BC86"
+				table_id: 435827163352409742L
+				type: "choice"
+			}]
+			tasks: [{
+				consume_items: true
+				id: "4B9013E97EA75235"
+				item: { components: { "minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}", "minecraft:enchantments": { levels: { "minecraft:mending": 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				only_from_crafting: false
+				type: "item"
+			}]
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			can_repeat: true
+			icon: {
+				id: "minecraft:terracotta"
+			}
+			id: "3DE2D6C52225957C"
+			rewards: [{
+				exclude_from_claim_all: true
+				id: "45A86F11CF0B7D51"
+				table_id: 89556597131418451L
+				type: "choice"
+			}]
+			tasks: [{
+				consume_items: true
+				id: "7B58ACE5381456C8"
+				item: { components: { "minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}", "minecraft:enchantments": { levels: { "minecraft:mending": 1 } } }, count: 1, id: "minecraft:paper" }
+				match_components: "strict"
+				only_from_crafting: false
+				type: "item"
+			}]
+			x: -2.0d
+			y: 2.0d
+		}
+	]
+}

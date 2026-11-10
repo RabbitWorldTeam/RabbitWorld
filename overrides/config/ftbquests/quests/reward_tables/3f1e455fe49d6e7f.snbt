@@ -1,0 +1,103 @@
+{
+	id: "3F1E455FE49D6E7F"
+	loot_size: 1
+	order_index: 3
+	rewards: [
+		{
+			count: 640
+			id: "1E90E16A43506705"
+			item: {
+				count: 1
+				id: "minecraft:oak_log"
+			}
+		}
+		{
+			count: 640
+			id: "057CB4AFCCDBB082"
+			item: {
+				count: 1
+				id: "minecraft:birch_log"
+			}
+		}
+		{
+			count: 640
+			id: "35384DDEFB725FDF"
+			item: {
+				count: 1
+				id: "minecraft:jungle_log"
+			}
+		}
+		{
+			count: 640
+			id: "2F3D3CA5BB6E7974"
+			item: {
+				count: 1
+				id: "minecraft:acacia_log"
+			}
+		}
+		{
+			count: 640
+			id: "22CBB4698DFF8E48"
+			item: {
+				count: 1
+				id: "minecraft:dark_oak_log"
+			}
+		}
+		{
+			count: 640
+			id: "206D0E55F04C4B99"
+			item: {
+				count: 1
+				id: "minecraft:mangrove_log"
+			}
+		}
+		{
+			count: 640
+			id: "0D08E8413F5F07AC"
+			item: {
+				count: 1
+				id: "minecraft:cherry_log"
+			}
+		}
+		{
+			count: 640
+			id: "38E1BBC568314657"
+			item: {
+				count: 1
+				id: "minecraft:bamboo_block"
+			}
+		}
+		{
+			count: 1728
+			id: "1BB50D211BF42661"
+			item: {
+				count: 1
+				id: "minecraft:stone"
+			}
+		}
+		{
+			count: 640
+			id: "31C1D97DCA01AE2F"
+			item: {
+				count: 1
+				id: "minecraft:bricks"
+			}
+		}
+		{
+			count: 1728
+			id: "3C186068A19C5A4E"
+			item: {
+				count: 1
+				id: "minecraft:red_sand"
+			}
+		}
+		{
+			count: 640
+			id: "3CE1A85DBBD03659"
+			item: {
+				count: 1
+				id: "minecraft:quartz_block"
+			}
+		}
+	]
+}

@@ -1,0 +1,51 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "0cdf60251b131dff"
+	group: "30A3B0B06897CF75"
+	icon: {
+		id: "minecraft:wooden_sword"
+	}
+	id: "0CDF60251B131DFF"
+	images: [ ]
+	order_index: 1
+	quest_links: [ ]
+	quests: [{
+		can_repeat: true
+		icon: {
+			components: {
+				"minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"Rabbit Trident\"}],\"text\":\"\"}"
+				"minecraft:enchantments": {
+					levels: {
+						"minecraft:channeling": 1
+						"minecraft:impaling": 8
+						"minecraft:loyalty": 3
+						"minecraft:mending": 1
+						"minecraft:unbreaking": 5
+					}
+					show_in_tooltip: 0b
+				}
+				"minecraft:lore": [
+					"{\"extra\":[{\"italic\":false,\"text\":\"Rabbit World Present\"}],\"text\":\"\"}"
+					"{\"extra\":[{\"italic\":false,\"text\":\"Powerful enough that no further enchantments are needed.\"}],\"text\":\"\"}"
+				]
+			}
+			id: "minecraft:trident"
+		}
+		id: "32F35AA0D382BA1B"
+		rewards: [{
+			exclude_from_claim_all: true
+			id: "45B459B1840A9E93"
+			table_id: 2357617642765424357L
+			type: "choice"
+		}]
+		tasks: [{
+			consume_items: true
+			id: "68CEA2D497F0ECB3"
+			item: { components: { "minecraft:custom_name": "\"开服装备兑换券\"", "minecraft:enchantments": { levels: { "minecraft:mending": 1 } }, "minecraft:repair_cost": 1 }, count: 1, id: "minecraft:paper" }
+			type: "item"
+		}]
+		x: 0.0d
+		y: 0.0d
+	}]
+}

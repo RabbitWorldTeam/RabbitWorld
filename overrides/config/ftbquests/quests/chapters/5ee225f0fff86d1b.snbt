@@ -1,0 +1,488 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "5ee225f0fff86d1b"
+	group: "72A8BA1733926B25"
+	icon: {
+		id: "minecraft:writable_book"
+	}
+	id: "5EE225F0FFF86D1B"
+	images: [ ]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:wheat"
+			}
+			id: "31CCAFC2B6D7F344"
+			rewards: [
+				{
+					exclude_from_claim_all: true
+					id: "3B72FB5B04693960"
+					table_id: 2037360906014870132L
+					type: "random"
+				}
+				{
+					id: "10A7E29CDCABFE2B"
+					item: {
+						components: {
+							"minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}"
+							"minecraft:enchantments": {
+								levels: {
+									"minecraft:mending": 1
+								}
+							}
+						}
+						count: 1
+						id: "minecraft:paper"
+					}
+					type: "item"
+				}
+				{
+					count: 16
+					id: "0B1E3B100C9E27EE"
+					item: {
+						count: 1
+						id: "minecraft:emerald"
+					}
+					type: "item"
+				}
+			]
+			tags: ["rabbit_weekly"]
+			tasks: [{
+				consume_items: true
+				count: 1728L
+				id: "2D8F2D8FC5AB2FF5"
+				item: { count: 1, id: "minecraft:wheat" }
+				type: "item"
+			}]
+			x: -2.0d
+			y: -1.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:phantom_spawn_egg"
+			}
+			id: "58833390C544B5D4"
+			rewards: [
+				{
+					exclude_from_claim_all: true
+					id: "0ED6A07B77A32E50"
+					table_id: 2037360906014870132L
+					type: "random"
+				}
+				{
+					id: "1AD8AAC046724994"
+					item: {
+						components: {
+							"minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}"
+							"minecraft:enchantments": {
+								levels: {
+									"minecraft:mending": 1
+								}
+							}
+						}
+						count: 1
+						id: "minecraft:paper"
+					}
+					type: "item"
+				}
+			]
+			tags: ["rabbit_weekly"]
+			tasks: [{
+				entity: "minecraft:phantom"
+				id: "79F437A692508995"
+				type: "kill"
+				value: 128L
+			}]
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:compass"
+			}
+			id: "42F590B317711E0B"
+			rewards: [{
+				id: "18605C95900A116A"
+				item: {
+					components: {
+						"minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}"
+						"minecraft:enchantments": {
+							levels: {
+								"minecraft:mending": 1
+							}
+						}
+					}
+					count: 1
+					id: "minecraft:paper"
+				}
+				type: "item"
+			}]
+			tags: ["rabbit_weekly"]
+			tasks: [{
+				dimension: "minecraft:overworld"
+				id: "28F4B07216272861"
+				ignore_dimension: false
+				position: [I;
+					-24
+					80
+					-1
+				]
+				size: [I;
+					2
+					1
+					2
+				]
+				type: "location"
+			}]
+			x: -2.0d
+			y: -3.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:iron_sword"
+			}
+			id: "28CEF2C1BA43BE37"
+			rewards: [
+				{
+					id: "22B8443CACB469D0"
+					item: {
+						components: {
+							"minecraft:custom_name": "\"建材兑换券\""
+							"minecraft:enchantments": {
+								levels: {
+									"minecraft:mending": 1
+								}
+							}
+							"minecraft:repair_cost": 1
+						}
+						count: 1
+						id: "minecraft:paper"
+					}
+					type: "item"
+				}
+				{
+					exclude_from_claim_all: true
+					id: "29E62C887EE74F1D"
+					table_id: 2037360906014870132L
+					type: "choice"
+				}
+				{
+					id: "64509096A8975445"
+					item: {
+						components: {
+							"minecraft:custom_name": "\"AK-47 | 传承\""
+							"minecraft:enchantments": {
+								levels: {
+									"minecraft:infinity": 1
+									"minecraft:unbreaking": 3
+								}
+							}
+							"minecraft:repair_cost": 3
+						}
+						count: 1
+						id: "minecraft:bow"
+					}
+					type: "item"
+				}
+			]
+			tags: ["rabbit_weekly"]
+			tasks: [{
+				icon: {
+					id: "minecraft:iron_sword"
+				}
+				id: "71EF426E1A1A45D5"
+				tags: ["quest_damage"]
+				type: "custom"
+			}]
+			x: -4.0d
+			y: -1.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				components: {
+					"minecraft:potion_contents": {
+						potion: "minecraft:weakness"
+					}
+				}
+				id: "minecraft:tipped_arrow"
+			}
+			id: "59B59B132EED05FC"
+			rewards: [
+				{
+					id: "0F8B24977986D5BA"
+					item: {
+						components: {
+							"minecraft:custom_name": "\"建材兑换券\""
+							"minecraft:enchantments": {
+								levels: {
+									"minecraft:mending": 1
+								}
+							}
+							"minecraft:repair_cost": 1
+						}
+						count: 1
+						id: "minecraft:paper"
+					}
+					type: "item"
+				}
+				{
+					count: 32
+					id: "26F01116F2FDF5B0"
+					item: {
+						count: 1
+						id: "minecraft:emerald"
+					}
+					type: "item"
+				}
+				{
+					exclude_from_claim_all: true
+					id: "0FDEF557371448AA"
+					table_id: 2037360906014870132L
+					type: "random"
+				}
+			]
+			tags: ["rabbit_weekly"]
+			tasks: [
+				{
+					consume_items: true
+					count: 64L
+					id: "1041A3088259F922"
+					item: { components: { "minecraft:potion_contents": { potion: "minecraft:weakness" } }, count: 1, id: "minecraft:tipped_arrow" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 16L
+					id: "5F637A1FE126C2A5"
+					item: { components: { "minecraft:potion_contents": { potion: "minecraft:strong_healing" } }, count: 1, id: "minecraft:potion" }
+					type: "item"
+				}
+			]
+			x: 0.0d
+			y: 0.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:warden_spawn_egg"
+			}
+			id: "297F94A904255751"
+			rewards: [
+				{
+					exclude_from_claim_all: true
+					id: "2B3E9C972D0D2718"
+					table_id: 2037360906014870132L
+					type: "choice"
+				}
+				{
+					count: 16
+					id: "5EE1FCE4DAE27AF8"
+					item: {
+						count: 1
+						id: "minecraft:emerald"
+					}
+					type: "item"
+				}
+				{
+					count: 2
+					id: "4CB891346D30B126"
+					item: {
+						components: {
+							"minecraft:custom_name": "\"建材兑换券\""
+							"minecraft:enchantments": {
+								levels: {
+									"minecraft:mending": 1
+								}
+							}
+							"minecraft:repair_cost": 1
+						}
+						count: 1
+						id: "minecraft:paper"
+					}
+					type: "item"
+				}
+			]
+			tags: ["rabbit_weekly"]
+			tasks: [{
+				entity: "minecraft:warden"
+				id: "1EA9FDEFCFEA383A"
+				type: "kill"
+				value: 4L
+			}]
+			x: -2.0d
+			y: 0.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:sheep_spawn_egg"
+			}
+			id: "244BCD700CFC9BE8"
+			rewards: [
+				{
+					id: "4991FF97983D3976"
+					item: {
+						components: {
+							"minecraft:custom_name": "\"建材兑换券\""
+							"minecraft:enchantments": {
+								levels: {
+									"minecraft:mending": 1
+								}
+							}
+							"minecraft:repair_cost": 1
+						}
+						count: 1
+						id: "minecraft:paper"
+					}
+					type: "item"
+				}
+				{
+					exclude_from_claim_all: true
+					id: "0B7CD8BAEA8C19F5"
+					table_id: 2037360906014870132L
+					type: "choice"
+				}
+			]
+			tags: ["rabbit_weekly"]
+			tasks: [
+				{
+					consume_items: true
+					id: "4013E7680CDB31D2"
+					item: { count: 1, id: "minecraft:lightning_rod" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 4L
+					id: "3C6F1D85129BA7F0"
+					item: { count: 1, id: "minecraft:oak_planks" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					id: "290CBCEFF5963CE2"
+					item: { count: 1, id: "minecraft:oak_slab" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					id: "4489E3762F77510B"
+					item: { count: 1, id: "minecraft:oak_boat" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 2L
+					id: "0CBDDA8711949B48"
+					item: { count: 1, id: "minecraft:redstone_torch" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					id: "670DF10B41F73208"
+					item: { count: 1, id: "minecraft:redstone" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					id: "172BBE5F7A6DE95F"
+					item: { count: 1, id: "minecraft:chiseled_stone_bricks" }
+					type: "item"
+				}
+				{
+					entity: "minecraft:sheep"
+					id: "1466F579F492B245"
+					optional_task: true
+					type: "kill"
+					value: 1L
+				}
+			]
+			x: -4.0d
+			y: 0.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:copper_bulb"
+			}
+			id: "6DB1CA8F2364A901"
+			rewards: [{
+				id: "6DB1CA8F2364A905"
+				item: {
+					components: {
+						"minecraft:custom_name": "{\"extra\":[{\"italic\":false,\"text\":\"建材兑换券\"}],\"text\":\"\"}"
+						"minecraft:enchantments": {
+							levels: {
+								"minecraft:mending": 1
+							}
+						}
+					}
+					count: 1
+					id: "minecraft:paper"
+				}
+				type: "item"
+			}]
+			tags: [
+				"rabbit_weekly"
+				"rabbit_engineering_order"
+			]
+			tasks: [
+				{
+					consume_items: true
+					count: 64L
+					id: "6DB1CA8F2364A902"
+					item: { count: 1, id: "minecraft:cyan_stained_glass" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 128L
+					id: "6DB1CA8F2364A903"
+					item: { count: 1, id: "minecraft:light_gray_concrete" }
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 16L
+					id: "6DB1CA8F2364A904"
+					item: { count: 1, id: "minecraft:copper_bulb" }
+					type: "item"
+				}
+			]
+			x: 2.0d
+			y: -1.5d
+		}
+		{
+			can_repeat: false
+			icon: {
+				id: "minecraft:echo_shard"
+			}
+			id: "6DB1CA8F2364A906"
+			rewards: [{
+				count: 4
+				id: "6DB1CA8F2364A908"
+				item: {
+					count: 1
+					id: "minecraft:echo_shard"
+				}
+				type: "item"
+			}]
+			tags: ["rabbit_weekly"]
+			tasks: [{
+				id: "6DB1CA8F2364A907"
+				tags: ["quest_damage_deep_dark"]
+				type: "custom"
+			}]
+			x: 2.0d
+			y: 0.5d
+		}
+	]
+}

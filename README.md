@@ -29,7 +29,7 @@ java -version
 python3 scripts/build.py server
 ```
 
-脚本按清单下载服务端模组、合并配置、安装 NeoForge，输出 `dist/Rabbit-World-Server-1.21.zip`。如果 CurseForge 不向 API 提供某个文件，脚本会报告其项目 ID 和文件 ID 并终止。可以通过 CurseForge 客户端安装整合包，然后按同样的排除清单整理模组并手动上传到 NeoForge 服务端。
+脚本按清单下载服务端模组、合并配置、安装 NeoForge，输出 `dist/Rabbit-World-Server-2.0.0.zip`。如果 CurseForge 不向 API 提供某个文件，脚本会报告其项目 ID 和文件 ID 并终止。可以通过 CurseForge 客户端安装整合包，然后按同样的排除清单整理模组并手动上传到 NeoForge 服务端。
 
 解压到空服务端目录。Linux 用 `bash run.sh nogui` 启动，Windows 用 `run.bat nogui`。首次启动会生成 `eula.txt`，阅读并接受 EULA 后再次启动。等控制台出现 `Done` 后，用同版客户端进服，检查 FTB 任务和 MTR。
 

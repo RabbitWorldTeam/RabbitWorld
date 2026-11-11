@@ -11,7 +11,7 @@
   "manifestType": "minecraftModpack",
   "manifestVersion": 1,
   "name": "Rabbit World Client",
-  "version": "2.0.0",
+  "version": "2.0.0 Hotfix 1",
   "author": "",
   "overrides": "overrides",
   "files": [
@@ -251,7 +251,7 @@
     },
     {
       "projectID": 1710757,
-      "fileID": 9285677,
+      "fileID": 9555104,
       "required": true,
       "isLocked": false
     },

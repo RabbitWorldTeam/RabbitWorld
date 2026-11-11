@@ -17,6 +17,13 @@ from zipfile import ZIP_DEFLATED, ZipFile, is_zipfile
 ROOT = Path(__file__).resolve().parents[1]
 CURSEFORGE_API = "https://api.curseforge.com/v1"
 NEOFORGE_MAVEN = "https://maven.neoforged.net/releases/net/neoforged/neoforge"
+RABBIT_PROJECTS = {
+    "RabbitCore": "rabbitcore",
+    "RabbitTools": "rabbittools",
+    "RabbitMine": "rabbitmine",
+    "RabbitAuth": "rabbitauth",
+}
+SERVER_ONLY = "RabbitAuth"
 
 
 def archive(output, files):
@@ -48,6 +55,41 @@ def curseforge(path, key, payload=None):
 def download(url, target):
     with urlopen(url, timeout=120) as response, target.open("wb") as file:
         shutil.copyfileobj(response, file)
+
+
+def rabbit_mods(manifest, directory, include_server_only):
+    minecraft = manifest["minecraft"]["version"]
+    mods = {}
+    for project, mod_id in RABBIT_PROJECTS.items():
+        if project == SERVER_ONLY and not include_server_only:
+            continue
+        api = f"https://api.github.com/repos/RabbitWorldTeam/{project}/releases/latest"
+        request = Request(api, headers={"Accept": "application/vnd.github+json"})
+        try:
+            with urlopen(request, timeout=60) as response:
+                release = json.load(response)
+        except HTTPError as error:
+            if error.code == 404:
+                raise ValueError(f"{project} has no published stable GitHub Release.") from error
+            raise
+        version = release["tag_name"].removeprefix("v")
+        name = f"{mod_id}-{minecraft}-neoforge-{version}.jar"
+        assets = [asset for asset in release["assets"] if asset["name"] == name]
+        if len(assets) != 1:
+            raise ValueError(f"{project} {release['tag_name']} is missing the expected asset {name}.")
+        asset = assets[0]
+        target = directory / name
+        if target.name != name:
+            raise ValueError(f"Invalid release asset name: {name}")
+        download(asset["browser_download_url"], target)
+        if not is_zipfile(target):
+            raise ValueError(f"Invalid release JAR: {project} {name}")
+        digest = asset.get("digest")
+        if digest and digest != "sha256:" + hashlib.sha256(target.read_bytes()).hexdigest():
+            raise ValueError(f"SHA-256 mismatch: {project} {name}")
+        mods[project] = target
+        print(f"Using {project} {release['tag_name']}: {name}", flush=True)
+    return mods
 
 
 def install_mods(manifest, mods, key):
@@ -93,10 +135,15 @@ def install_mods(manifest, mods, key):
             raise ValueError(f"SHA-1 mismatch: {label}")
 
 
-def build_server(manifest, output):
-    key = os.environ.get("CURSEFORGE_API_KEY")
-    if not key:
-        raise ValueError("Set CURSEFORGE_API_KEY before building the server pack.")
+def build_client(output, mods):
+    files = [(ROOT / name, name) for name in ("manifest.json", "modlist.html")]
+    files.extend(tree_files(ROOT / "overrides", "overrides/"))
+    files.extend((jar, f"overrides/mods/{jar.name}") for project, jar in mods.items()
+                 if project != SERVER_ONLY)
+    archive(output, files)
+
+
+def build_server(manifest, output, mods, key):
     loader = next(
         loader["id"] for loader in manifest["minecraft"]["modLoaders"] if loader["primary"]
     )
@@ -109,7 +156,11 @@ def build_server(manifest, output):
         shutil.copytree(ROOT / "overrides", server)
         # BlueMap generates server-world profiles on first run.
         shutil.rmtree(server / "config/bluemap/maps", ignore_errors=True)
-        install_mods(manifest, server / "mods", key)
+        mod_directory = server / "mods"
+        mod_directory.mkdir(exist_ok=True)
+        for jar in mods.values():
+            shutil.copy2(jar, mod_directory / jar.name)
+        install_mods(manifest, mod_directory, key)
 
         installer = work / f"{loader}-installer.jar"
         download(f"{NEOFORGE_MAVEN}/{version}/{installer.name}", installer)
@@ -129,17 +180,22 @@ def build_server(manifest, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("target", choices=("client", "server"))
+    parser.add_argument("target", choices=("client", "server", "both"))
     args = parser.parse_args()
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
-    output = ROOT / "dist" / f"Rabbit-World-{args.target.title()}-{manifest['version']}.zip"
-    if args.target == "client":
-        files = [(ROOT / name, name) for name in ("manifest.json", "modlist.html")]
-        files.extend(tree_files(ROOT / "overrides", "overrides/"))
-        archive(output, files)
-    else:
-        build_server(manifest, output)
-    print(output)
+    targets = ("client", "server") if args.target == "both" else (args.target,)
+    key = os.environ.get("CURSEFORGE_API_KEY")
+    if "server" in targets and not key:
+        raise ValueError("Set CURSEFORGE_API_KEY before building the server pack.")
+    with tempfile.TemporaryDirectory() as temp:
+        mods = rabbit_mods(manifest, Path(temp), include_server_only="server" in targets)
+        for target in targets:
+            output = ROOT / "dist" / f"Rabbit-World-{target.title()}-{manifest['version']}.zip"
+            if target == "client":
+                build_client(output, mods)
+            else:
+                build_server(manifest, output, mods, key)
+            print(output)
 
 
 if __name__ == "__main__":

@@ -4,46 +4,54 @@ on:
   push:
     branches: [main]
     tags: ['v*']
+  pull_request:
+    branches: [main]
   workflow_dispatch:
-    inputs:
-      build_server:
-        description: Build the dedicated server pack
-        type: boolean
-        default: false
 
 permissions:
   contents: read
 
 jobs:
-  client:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Build client pack
-        run: python3 scripts/build.py client
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v7
         with:
-          name: Rabbit-World-Client
-          path: dist/Rabbit-World-Client-*.zip
-          if-no-files-found: error
+          persist-credentials: false
+      - name: Test pack assembly
+        run: python3 -m unittest discover -s scripts -p 'test_*.py'
 
-  server:
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.build_server
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: test
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
+    concurrency:
+      group: release-${{ github.ref }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: '21'
-      - name: Build server pack
+      - name: Build client and server packs from the same Rabbit releases
         env:
           CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
-        run: python3 scripts/build.py server
-      - uses: actions/upload-artifact@v4
-        if: github.event.repository.private
-        with:
-          name: Rabbit-World-Server
-          path: dist/Rabbit-World-Server-*.zip
-          if-no-files-found: error
+        run: python3 scripts/build.py both
+      - name: Publish both packs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          shopt -s nullglob
+          client=(dist/Rabbit-World-Client-*.zip)
+          server=(dist/Rabbit-World-Server-*.zip)
+          [[ ${#client[@]} == 1 && ${#server[@]} == 1 ]]
+          gh release create "$RELEASE_TAG" "${client[0]}" "${server[0]}" \
+            --verify-tag --generate-notes

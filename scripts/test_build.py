@@ -38,39 +38,32 @@ class RabbitReleaseTests(unittest.TestCase):
             "digest": "sha256:" + hashlib.sha256(self.jar_bytes).hexdigest(),
         }]}).encode())
 
-    def test_both_packs_reuse_common_jars_and_auth_is_server_only(self):
+    def test_client_pack_includes_manifest_overrides_and_rabbit_jars(self):
         def download(url, target):
             target.write_bytes(self.jar_bytes)
 
-        def install_neoforge(command, cwd, env, check):
-            for name in ("run.sh", "run.bat", "user_jvm_args.txt"):
-                (cwd / name).touch()
-
         client = self.root / "client.zip"
-        server = self.root / "server.zip"
         with patch.object(build, "ROOT", self.root), \
                 patch.object(build, "urlopen", side_effect=self.release) as api, \
-                patch.object(build, "download", side_effect=download), \
-                patch.object(build, "install_mods"), \
-                patch.object(build.subprocess, "run", side_effect=install_neoforge):
-            mods = build.rabbit_mods(self.manifest, self.root, include_server_only=True)
+                patch.object(build, "download", side_effect=download):
+            mods = build.rabbit_mods(self.manifest, self.root)
             build.build_client(client, mods)
-            build.build_server(self.manifest, server, mods, "test-key")
-        self.assertEqual(api.call_count, 4)
+        self.assertEqual(api.call_count, 3)
+        self.assertEqual(set(mods), {"RabbitCore", "RabbitTools", "RabbitMine"})
 
-        with ZipFile(client) as client_zip, ZipFile(server) as server_zip:
-            client_mods = {Path(name).name for name in client_zip.namelist() if name.startswith("overrides/mods/")}
-            server_mods = {Path(name).name for name in server_zip.namelist() if name.startswith("mods/")}
-            self.assertEqual(client_mods, {jar.name for project, jar in mods.items() if project != "RabbitAuth"})
-            self.assertEqual(server_mods, {jar.name for jar in mods.values()})
-            for name in client_mods:
-                self.assertEqual(client_zip.read(f"overrides/mods/{name}"), server_zip.read(f"mods/{name}"))
+        with ZipFile(client) as client_zip:
+            jar_paths = {f"overrides/mods/{jar.name}" for jar in mods.values()}
+            self.assertEqual(set(client_zip.namelist()), {
+                "manifest.json", "modlist.html", "overrides/config/example.txt",
+            } | jar_paths)
+            for name in jar_paths:
+                self.assertEqual(client_zip.read(name), self.jar_bytes)
 
     def test_no_release_is_reported_with_project_name(self):
         missing = HTTPError("https://api.github.com", 404, "Not Found", None, None)
         with patch.object(build, "urlopen", side_effect=missing):
             with self.assertRaisesRegex(ValueError, "RabbitCore has no published stable"):
-                build.rabbit_mods(self.manifest, self.root, include_server_only=True)
+                build.rabbit_mods(self.manifest, self.root)
 
 
 if __name__ == "__main__":

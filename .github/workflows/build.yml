@@ -35,15 +35,9 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-java@v6
-        with:
-          distribution: temurin
-          java-version: '21'
-      - name: Build client and server packs from the same Rabbit releases
-        env:
-          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
-        run: python3 scripts/build.py both
-      - name: Publish both packs
+      - name: Build the client pack
+        run: python3 scripts/build.py client
+      - name: Publish the client pack
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
@@ -51,7 +45,6 @@ jobs:
         run: |
           shopt -s nullglob
           client=(dist/Rabbit-World-Client-*.zip)
-          server=(dist/Rabbit-World-Server-*.zip)
-          [[ ${#client[@]} == 1 && ${#server[@]} == 1 ]]
-          gh release create "$RELEASE_TAG" "${client[0]}" "${server[0]}" \
+          [[ ${#client[@]} == 1 ]]
+          gh release create "$RELEASE_TAG" "${client[0]}" \
             --verify-tag --generate-notes

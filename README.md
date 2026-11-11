@@ -7,18 +7,20 @@
 - `manifest.json` 固定 Minecraft、NeoForge 和 CurseForge 下载项的版本。
 - `overrides/config/` 包含整合包配置和 FTB 任务。
 - `overrides/kubejs/` 包含 KubeJS 脚本及资源。
-- `overrides/mods/` 包含整合包自带的三个 Rabbit JAR。
+- Rabbit 系列 JAR 由构建脚本从各模组仓库的最新正式 GitHub Release 下载。
 - `server-excludes.txt` 用 CurseForge 项目 slug 维护服务端应跳过的客户端项目。
 
 仓库只保留整合包所需文件。本地地图缓存、旧任务备份、Numen MCP 连接配置和 BlueMap SQL 连接配置由使用者自行管理。服务端构建会跳过指向客户端存档的 BlueMap 地图定义。
 
 ## 安装客户端
 
-从 GitHub Actions 的 **Build Rabbit World** 下载 **Rabbit-World-Client** 构建产物。解开 Actions 外层压缩包，将里面的 `Rabbit-World-Client-1.21.zip` 导入 CurseForge。
+从 Rabbit World 的 GitHub Releases 下载 `Rabbit-World-Client-*.zip`，直接导入 CurseForge。
 
 也可以用 Python 3.9 或更新版本在本地运行 `python3 scripts/build.py client`，输出到 `dist/`。
 
 ## 构建和安装服务端
+
+从同一个 GitHub Release 下载 `Rabbit-World-Server-*.zip`。
 
 准备 Python 3.9 或更新版本、Java 21 和 CurseForge API Key。把 Key 设置为当前终端的环境变量 `CURSEFORGE_API_KEY`，然后运行：
 
@@ -33,4 +35,6 @@ python3 scripts/build.py server
 
 ## GitHub Actions
 
-推送到 `main` 或推送 `v*` 标签会构建客户端包。服务端构建可在配置仓库 Secret `CURSEFORGE_API_KEY` 后，从 **Run workflow** 勾选 **Build the dedicated server pack**。公开仓库中的服务端任务用于验证构建，完整 ZIP 可在本地生成。私有仓库的任务会上传服务端构建产物。
+推送 `v*` 标签后，**Build Rabbit World** 会执行 `python3 scripts/build.py both`，在同一个 GitHub Release 上传客户端和服务端 ZIP。也可对已有版本标签手动运行工作流。发布前需要配置仓库 Secret `CURSEFORGE_API_KEY`，并确保 CurseForge API 能提供服务端所需文件。
+
+每次发布只下载一份 RabbitCore、RabbitTools 和 RabbitMine，两个包使用相同的 JAR。RabbitAuth 只进入服务端包。脚本按整合包的 Minecraft 版本选择 NeoForge JAR，任何模组缺少对应的正式发布产物时，整合包发布会失败。

@@ -21,4 +21,6 @@
 
 推送 `v*` 标签后，**Build Rabbit World** 会构建客户端 ZIP 并上传到对应的 GitHub Release。也可对版本标签手动运行工作流。
 
+发布前更新 `manifest.json` 的版本，并在 [CHANGELOG.md](CHANGELOG.md) 添加对应的二级标题（例如 `## 2.1.1`）和改动说明。工作流会检查标签与清单版本一致，并将该版本条目用作 Release 正文。缺少版本条目或条目为空时，发布任务会失败。
+
 客户端包包含 RabbitCore、RabbitTools 和 RabbitMine。构建脚本从各模组的最新正式发布中选取与整合包 Minecraft 版本匹配的 NeoForge JAR。

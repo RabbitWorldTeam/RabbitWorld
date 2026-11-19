@@ -63,9 +63,6 @@
     "entity": true,
     "entity_variant": true
   },
-  "ftbquests": {
-    "barrier": true
-  },
   "supplementaries": {
     "hat_stand": true
   },

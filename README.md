@@ -1,11 +1,11 @@
 # Rabbit World
 
-基于 Minecraft Java 1.21.1 和 NeoForge 21.1.265 的整合包，包含 Minecraft Transit Railway、FTB Quests 和 Rabbit 系列模组。
+基于 Minecraft Java 1.21.1 和 NeoForge 21.1.265 的整合包，包含 Minecraft Transit Railway 和 Rabbit 系列模组。
 
 ## 项目文件
 
 - `manifest.json` 固定 Minecraft、NeoForge 和 CurseForge 下载项的版本。
-- `overrides/config/` 包含整合包配置和 FTB 任务。
+- `overrides/config/` 包含整合包配置。周常由服务端通过 RabbitQuest 数据包提供。
 - `overrides/kubejs/` 包含 KubeJS 脚本及资源。
 - Rabbit 系列 JAR 由构建脚本从各模组仓库的最新正式 GitHub Release 下载。
 

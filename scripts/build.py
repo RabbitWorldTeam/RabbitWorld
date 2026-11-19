@@ -15,6 +15,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, is_zipfile
 ROOT = Path(__file__).resolve().parents[1]
 RABBIT_PROJECTS = {
     "RabbitCore": "rabbitcore",
+    "RabbitQuest": "rabbitquest",
     "RabbitTools": "rabbittools",
     "RabbitMine": "rabbitmine",
 }

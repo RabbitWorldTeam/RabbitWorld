@@ -23,4 +23,4 @@
 
 发布前更新 `manifest.json` 的版本，并在 [CHANGELOG.md](CHANGELOG.md) 添加对应的二级标题（例如 `## 2.1.1`）和改动说明。工作流会检查标签与清单版本一致，并将该版本条目用作 Release 正文。缺少版本条目或条目为空时，发布任务会失败。
 
-客户端包包含 RabbitCore、RabbitTools 和 RabbitMine。构建脚本从各模组的最新正式发布中选取与整合包 Minecraft 版本匹配的 NeoForge JAR。
+客户端包包含 RabbitCore、RabbitQuest、RabbitTools 和 RabbitMine。构建脚本从各模组的最新正式发布中选取与整合包 Minecraft 版本匹配的 NeoForge JAR。构建新整合包前，请先通过 RabbitQuest 的 Release 工作流发布对应版本。

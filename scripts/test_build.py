@@ -48,8 +48,8 @@ class RabbitReleaseTests(unittest.TestCase):
                 patch.object(build, "download", side_effect=download):
             mods = build.rabbit_mods(self.manifest, self.root)
             build.build_client(client, mods)
-        self.assertEqual(api.call_count, 3)
-        self.assertEqual(set(mods), {"RabbitCore", "RabbitTools", "RabbitMine"})
+        self.assertEqual(api.call_count, 4)
+        self.assertEqual(set(mods), {"RabbitCore", "RabbitQuest", "RabbitTools", "RabbitMine"})
 
         with ZipFile(client) as client_zip:
             jar_paths = {f"overrides/mods/{jar.name}" for jar in mods.values()}
@@ -58,6 +58,17 @@ class RabbitReleaseTests(unittest.TestCase):
             } | jar_paths)
             for name in jar_paths:
                 self.assertEqual(client_zip.read(name), self.jar_bytes)
+
+    def test_missing_rabbitquest_release_names_the_required_project(self):
+        def release(request, timeout):
+            if "/RabbitQuest/" in request.full_url:
+                raise HTTPError(request.full_url, 404, "Not Found", None, None)
+            return self.release(request, timeout)
+
+        with patch.object(build, "urlopen", side_effect=release), \
+                patch.object(build, "download", side_effect=lambda _, target: target.write_bytes(self.jar_bytes)):
+            with self.assertRaisesRegex(ValueError, "RabbitQuest has no published stable"):
+                build.rabbit_mods(self.manifest, self.root)
 
     def test_no_release_is_reported_with_project_name(self):
         missing = HTTPError("https://api.github.com", 404, "Not Found", None, None)
